@@ -1,0 +1,38 @@
+{
+    "item1": [
+        {
+            "item_id": "item3",
+            "rank": 1,
+            "score": 0.3
+        },
+        {
+            "item_id": "item6",
+            "rank": 2,
+            "score": 0.3
+        }
+    ],
+    "item2": [
+        {
+            "item_id": "item5",
+            "rank": 1,
+            "score": 0.1
+        },
+        {
+            "item_id": "item7",
+            "rank": 2,
+            "score": 0.3
+        }
+    ],
+    "item3": [
+        {
+            "item_id": "item6",
+            "rank": 1,
+            "score": 0.1
+        },
+        {
+            "item_id": "item9",
+            "rank": 2,
+            "score": 0.3
+        }
+    ]
+}
