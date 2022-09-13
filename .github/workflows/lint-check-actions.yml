@@ -8,5 +8,12 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.9'
-      - run: poetry install --no-dev
-      - run: poetry run flake8 app tests
+      - name: Install Poetry
+        run: |
+          curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+      - name: Add path for Poetry
+        run: echo "$HOME/.poetry/bin" >> $GITHUB_PATH
+      - name: Install Dependencies
+        run: poetry install --no-interaction --no-dev
+      - name: Run flake8
+        run: poetry run flake8 app tests
