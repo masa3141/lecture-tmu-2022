@@ -1,0 +1,13 @@
+name: lint-check-actions
+on: [pull_request]
+jobs:
+  lint-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'poetry' # caching poetry dependencies
+      - run: poetry install --no-dev
+      - run: poetry run flake8 app tests
