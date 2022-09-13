@@ -2,18 +2,17 @@ name: lint-check-actions
 on: [pull_request]
 jobs:
   lint-check:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
           python-version: '3.9'
-      - name: Install Poetry
-        run: |
-          curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
-      - name: Add path for Poetry
-        run: echo "$HOME/.poetry/bin" >> $GITHUB_PATH
+      - name: Run image
+        uses: abatilo/actions-poetry@v2
+        with:
+          poetry-version: '1.1.15'
       - name: Install Dependencies
-        run: poetry install --no-interaction --no-dev
+        run: poetry install --no-interaction
       - name: Run flake8
         run: poetry run flake8 app tests
