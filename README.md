@@ -1,17 +1,11 @@
-# FastAPI ML Template
+# Simple recommendation API
 
-I wrote a blog post about this repository in Japanese.
-
-[機械学習の推論WebAPIの実装をテンプレート化して使い回せるようした](https://zenn.dev/yag_ays/articles/eef1a8c8e1ee39)
+This is based on [fastapi-ml-template](https://github.com/yagays/fastapi-ml-template)
 
 ## Run Web API
 ### Local
-
 ```sh
-$ sh run.sh
-```
-
-```sh
+$ poetry install 
 $ poetry run uvicorn app.main:app --reload --host 0.0.0.0 --port 9000
 ```
 
@@ -30,19 +24,25 @@ $ docker compose up --build
 ## Request Commands
 
 ```sh 
-$ curl --request POST --url http://127.0.0.1:9000/api/v1/predict --header 'Content-Type: application/json' --data '{"input_text": "test"}'
+$ curl --request POST --url http://127.0.0.1:9000/api/v1/predict --header 'Content-Type: application/json' --data '{"item_id": "item3"}'
 ```
 
 ```sh
-$ http POST http://127.0.0.1:9000/api/v1/predict input_text=テスト
+$ http POST http://127.0.0.1:9000/api/v1/predict item_id=item3
 ```
 
-## Development
-### Run Tests and Linter
-
+## Run Tests and Linter
+### Using tox
 ```
 $ poetry run tox
 ```
+
+### Individual test
+```
+poetry run flake8 app tests
+poetry run python -m pytest -vv .
+```
+
 
 ## Reference
 
