@@ -2,7 +2,7 @@
 name = "fastapi-ml-template"
 version = "0.1.0"
 description = ""
-authors = ["Yuki Okuda <y.okuda@dr-ubie.com>"]
+authors = ["masa_kazama <m.kazama@dr-ubie.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
